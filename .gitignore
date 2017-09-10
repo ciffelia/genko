@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# testing
+/coverage
+
+# production
+/build
