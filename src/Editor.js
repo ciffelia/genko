@@ -29,13 +29,6 @@ class Editor extends Component {
     e.stopPropagation();
   }
   
-  static onChange(e) {
-    // Undo when user underlines
-    if(e.target.innerHTML !== e.target.innerText) {
-      document.execCommand('undo');
-    }
-  }
-  
   render() {
     return (
       <div
@@ -43,7 +36,6 @@ class Editor extends Component {
         contentEditable={true}
         onPaste={Editor.onPaste}
         onDrop={Editor.onDrop}
-        onInput={Editor.onChange}
       />
     );
   }
