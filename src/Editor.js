@@ -33,7 +33,8 @@ class Editor extends Component {
     return (
       <div
         className="Editor"
-        contentEditable={true}
+        contentEditable
+        ref={input => input && input.focus()}
         onPaste={Editor.onPaste}
         onDrop={Editor.onDrop}
       />
