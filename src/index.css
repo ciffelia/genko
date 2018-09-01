@@ -1,3 +1,14 @@
+html {
+  height: 100%;
+}
+
 body {
-  font-family: sans-serif;
+  margin: 8px;
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  font-family: Georgia, 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+}
+
+#root {
+  height: 100%;
 }

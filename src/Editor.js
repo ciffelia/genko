@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './Editor.css';
 
 class Editor extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  
   // The text pasted or dropped may contains images or styles, so remove them
   static onPaste(e) {
     // Get pasted contents as a plain text
@@ -29,12 +34,22 @@ class Editor extends Component {
     e.stopPropagation();
   }
   
+  componentDidMount() {
+    console.log(this.input.getBoundingClientRect().height / this.props.height);
+    this.setState({
+      fontSize: this.input.getBoundingClientRect().height / this.props.height
+    });
+    
+    this.input.focus();
+  }
+  
   render() {
     return (
       <div
         className="Editor"
         contentEditable
-        ref={input => input && input.focus()}
+        ref={input => { this.input = input; }}
+        style={{fontSize: this.state.fontSize}}
         onPaste={Editor.onPaste}
         onDrop={Editor.onDrop}
       />
